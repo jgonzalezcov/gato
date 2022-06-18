@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+* {
+  padding: 0%;
+  margin: 0%;
+}
+body {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+}
+
+.cat_box {
+  background-color: black;
+  color: #008000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 7em;
+  height: 7em;
+}
+
+#cat_box_1 {
+  grid-area: box_1;
+  border-right: 4px solid #fff;
+  border-bottom: 4px solid #fff;
+}
+#cat_box_2 {
+  grid-area: box_2;
+  border-right: 4px solid #fff;
+  border-bottom: 4px solid #fff;
+}
+#cat_box_3 {
+  grid-area: box_3;
+  border-bottom: 4px solid #fff;
+}
+
+#cat_box_4 {
+  grid-area: box_4;
+  border-bottom: 4px solid #fff;
+  border-right: 4px solid #fff;
+}
+#cat_box_5 {
+  grid-area: box_5;
+  border-bottom: 4px solid #fff;
+  border-right: 4px solid #fff;
+}
+#cat_box_6 {
+  grid-area: box_6;
+  border-bottom: 4px solid #fff;
+}
+#cat_box_7 {
+  grid-area: box_7;
+  border-right: 4px solid #fff;
+}
+#cat_box_8 {
+  grid-area: box_8;
+  border-right: 4px solid #fff;
+}
+#cat_box_9 {
+  grid-area: box_9;
+}
+
+#score_title {
+  grid-area: score_title;
+  color: #fff;
+  font-size: small;
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+  margin-top: 2.5em;
+  height: 100%;
+}
+#score_title_cpu {
+  grid-area: score_title_cpu;
+  color: #fff;
+  border-left: 1px solid #008000;
+  font-size: small;
+  padding: 0.3em;
+}
+#score_title_player {
+  grid-area: score_title_player;
+  color: #fff;
+  border-left: 1px solid #008000;
+  font-size: small;
+  padding: 0.3em;
+}
+
+#score_cpu {
+  grid-area: score_cpu;
+  color: #fff;
+  border-left: 1px solid #008000;
+  border-top: 1px solid #008000;
+  font-size: small;
+  padding: 0.3em;
+}
+#score_player {
+  grid-area: score_player;
+  color: #fff;
+  border-left: 1px solid #008000;
+  border-top: 1px solid #008000;
+  font-size: small;
+  padding: 0.3em;
+}
+#score_title_tie {
+  grid-area: score_title_tie;
+  color: #fff;
+  border-left: 1px solid #008000;
+  border-top: 1px solid #008000;
+  font-size: small;
+  padding: 0.3em;
+}
+#score_tie {
+  grid-area: score_tie;
+  color: #fff;
+  border-left: 1px solid #008000;
+  border-top: 1px solid #008000;
+  font-size: small;
+  padding: 0.3em;
+}
+.container_title_score {
+  margin-top: 2em;
+  grid-area: container_title_score;
+  border: 1px solid #008000;
+  display: grid;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    'score_title score_title_cpu score_title_player score_title_tie'
+    'score_title score_cpu score_player score_tie';
+}
+
+.cat {
+  border: 1px solid #008000;
+  padding: 1em;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    'box_1 box_2 box_3'
+    'box_4 box_5 box_6'
+    'box_7 box_8 box_9'
+    'container_title_score container_title_score container_title_score';
+}
+
+.cat_container {
+  margin-top: 2em;
+}
+
+.cat_head {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+.cat_head h1 {
+  color: #fff;
+}
