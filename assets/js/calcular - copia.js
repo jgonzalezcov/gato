@@ -23,8 +23,7 @@ var gamer_tie = 0
 var turn = 'player'
 var win = 'null'
 var turn_ini = 'player'
-console.log('turn_ini=' + turn_ini)
-console.log('turn=' + turn)
+
 var position = [
   'null',
   'null',
@@ -58,19 +57,7 @@ function reset_game() {
   box7_img.src = null_box
   box8_img.src = null_box
   box9_img.src = null_box
-  info_text.style.color = '#008000'
-  if (turn_ini == 'player') {
-    turn_ini = 'cpu'
-    turn = 'cpu'
-    cpu_mov()
-    info_text.innerHTML = 'PROCESANDO'
-  } else if (turn_ini == 'cpu') {
-    turn_ini = 'player'
-    turn = 'player'
-    info_text.innerHTML = 'TU TURNO'
-  }
-  console.log('turn_ini=' + turn_ini)
-  console.log('turn=' + turn)
+  turn = 'player'
 }
 //Valida si Gana Player
 function win_player() {
@@ -87,53 +74,12 @@ function win_player() {
     post_win_player()
   }
   function post_win_player() {
-    info_text.style.color = '#ff0000'
+    console.log('Tu Ganas')
     win = '1'
-    if (position[0] == 'x' && position[1] == 'x' && position[2] == 'x') {
-      box1_img.src = equis_win
-      box2_img.src = equis_win
-      box3_img.src = equis_win
-    }
-    if (position[3] == 'x' && position[4] == 'x' && position[5] == 'x') {
-      box4_img.src = equis_win
-      box5_img.src = equis_win
-      box6_img.src = equis_win
-    }
-    if (position[6] == 'x' && position[7] == 'x' && position[8] == 'x') {
-      box7_img.src = equis_win
-      box8_img.src = equis_win
-      box9_img.src = equis_win
-    }
-    if (position[0] == 'x' && position[3] == 'x' && position[6] == 'x') {
-      box1_img.src = equis_win
-      box4_img.src = equis_win
-      box7_img.src = equis_win
-    }
-    if (position[1] == 'x' && position[4] == 'x' && position[7] == 'x') {
-      box2_img.src = equis_win
-      box5_img.src = equis_win
-      box8_img.src = equis_win
-    }
-    if (position[2] == 'x' && position[5] == 'x' && position[8] == 'x') {
-      box3_img.src = equis_win
-      box6_img.src = equis_win
-      box9_img.src = equis_win
-    }
-    if (position[0] == 'x' && position[4] == 'x' && position[8] == 'x') {
-      box1_img.src = equis_win
-      box5_img.src = equis_win
-      box9_img.src = equis_win
-    }
-    if (position[6] == 'x' && position[4] == 'x' && position[2] == 'x') {
-      box7_img.src = equis_win
-      box5_img.src = equis_win
-      box3_img.src = equis_win
-    }
-    setTimeout(() => reset_game(), 1500)
     reset_game()
     gamer_player = gamer_player + 1
     score_player.innerHTML = gamer_player
-
+    info_text.innerHTML = 'TU TURNO'
   }
 }
 //Valida si Gana CPU
@@ -156,54 +102,10 @@ function win_cpu() {
 function post_win_cpu() {
   console.log('Perdiste')
   win = '1'
-
-  if (position[0] == 'o' && position[1] == 'o' && position[2] == 'o') {
-    box1_img.src = circle_win
-    box2_img.src = circle_win
-    box3_img.src = circle_win
-  }
-  if (position[3] == 'o' && position[4] == 'o' && position[5] == 'o') {
-    box4_img.src = circle_win
-    box5_img.src = circle_win
-    box6_img.src = circle_win
-  }
-  if (position[6] == 'o' && position[7] == 'o' && position[8] == 'o') {
-    box7_img.src = circle_win
-    box8_img.src = circle_win
-    box9_img.src = circle_win
-  }
-  if (position[0] == 'o' && position[3] == 'o' && position[6] == 'o') {
-    box1_img.src = circle_win
-    box4_img.src = circle_win
-    box7_img.src = circle_win
-  }
-  if (position[1] == 'o' && position[4] == 'o' && position[7] == 'o') {
-    box2_img.src = circle_win
-    box5_img.src = circle_win
-    box8_img.src = circle_win
-  }
-  if (position[2] == 'o' && position[5] == 'o' && position[8] == 'o') {
-    box3_img.src = circle_win
-    box6_img.src = circle_win
-    box9_img.src = circle_win
-  }
-  if (position[0] == 'o' && position[4] == 'o' && position[8] == 'o') {
-    box1_img.src = circle_win
-    box5_img.src = circle_win
-    box9_img.src = circle_win
-  }
-  if (position[6] == 'o' && position[4] == 'o' && position[2] == 'o') {
-    box7_img.src = circle_win
-    box5_img.src = circle_win
-    box3_img.src = circle_win
-  }
-  info_text.innerHTML = 'YO GANO'
-  info_text.style.color = '#ff0000'
-  turn=''
-  setTimeout(() => reset_game(), 1500)
-
+  reset_game()
   gamer_cpu = gamer_cpu + 1
   score_cpu.innerHTML = gamer_cpu
+  info_text.innerHTML = 'TU TURNO'
 }
 //Valida si es un empate
 function tie() {
@@ -223,9 +125,9 @@ function tie() {
   }
 
   function post_tie() {
-    info_text.innerHTML = 'EMPATE'
-    info_text.style.color = '#ff0000'
-    setTimeout(() => reset_game(), 1500)
+    info_text.innerHTML = 'TU TURNO'
+    console.log('Hemos empatado')
+    reset_game()
     gamer_tie = gamer_tie + 1
     score_tie.innerHTML = gamer_tie
   }
@@ -35012,8 +34914,8 @@ function cpu_mov() {
     position[8] == 'x'
   ) {
     turn = 'player'
-    position[2] = 'o'
-    box3_img.src = circle
+    position[1] = 'o'
+    box2_img.src = circle
     win_cpu()
     tie()
   }
