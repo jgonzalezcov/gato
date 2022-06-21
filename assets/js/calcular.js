@@ -63,7 +63,7 @@ function reset_game() {
     turn_ini = 'cpu'
     turn = 'cpu'
     cpu_mov()
-    info_text.innerHTML = 'PROCESANDO'
+    info_text.innerHTML =  'TU TURNO'
   } else if (turn_ini == 'cpu') {
     turn_ini = 'player'
     turn = 'player'
