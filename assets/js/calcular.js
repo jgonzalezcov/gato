@@ -154,8 +154,8 @@ function win_cpu() {
     (position[0] == 'o' && position[4] == 'o' && position[8] == 'o') ||
     (position[6] == 'o' && position[4] == 'o' && position[2] == 'o')
   ) {
-    jugada_gato.pause();
-    jugada_gato.currentTime = 0;
+    jugada_gato.pause()
+    jugada_gato.currentTime = 0
     burla.play()
     post_win_cpu()
   }
@@ -335,17 +335,14 @@ const player_box9 = function () {
 function thinking_cpu_mov() {
   setTimeout(() => cpu_mov(), 1000)
   info_text.innerHTML = 'PROCESANDO'
-
 }
-
-
 
 //Jugadas CPU
 
 function cpu_mov() {
-  jugada.pause();
-  jugada.currentTime = 0;
-  jugada_gato.play();
+  jugada.pause()
+  jugada.currentTime = 0
+  jugada_gato.play()
   if (
     turn == 'cpu' &&
     position[0] == 'null' &&
@@ -6875,8 +6872,8 @@ function cpu_mov() {
     position[8] == 'null'
   ) {
     turn = 'player'
-    position[0] = 'o'
-    box1_img.src = circle
+    position[8] = 'o'
+    box9_img.src = circle
     win_cpu()
     tie()
   }
@@ -25343,8 +25340,8 @@ function cpu_mov() {
     position[8] == 'null'
   ) {
     turn = 'player'
-    position[0] = 'o'
-    box1_img.src = circle
+    position[2] = 'o'
+    box3_img.src = circle
     win_cpu()
     tie()
   }
