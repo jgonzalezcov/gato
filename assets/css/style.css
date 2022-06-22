@@ -16,8 +16,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 7em;
-  height: 7em;
+  width: 6em;
+  height: 6em;
 }
 
 #cat_box_1 {
@@ -118,7 +118,7 @@ body {
   padding: 0.3em;
 }
 .container_title_score {
-  margin-top: 2em;
+  margin-top: 1em;
   grid-area: container_title_score;
   border: 1px solid #008000;
   display: grid;
@@ -169,6 +169,6 @@ body {
   color: #008000;
   font-size: 40px;
 }
-.info_text{
-  color:#fff;
+.info_text {
+  color: #fff;
 }
