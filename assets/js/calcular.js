@@ -63,7 +63,7 @@ function reset_game() {
     turn_ini = 'cpu'
     turn = 'cpu'
     cpu_mov()
-    info_text.innerHTML =  'TU TURNO'
+    info_text.innerHTML = 'TU TURNO'
   } else if (turn_ini == 'cpu') {
     turn_ini = 'player'
     turn = 'player'
@@ -133,7 +133,6 @@ function win_player() {
     reset_game()
     gamer_player = gamer_player + 1
     score_player.innerHTML = gamer_player
-
   }
 }
 //Valida si Gana CPU
@@ -199,7 +198,7 @@ function post_win_cpu() {
   }
   info_text.innerHTML = 'YO GANO'
   info_text.style.color = '#ff0000'
-  turn=''
+  turn = ''
   setTimeout(() => reset_game(), 1500)
 
   gamer_cpu = gamer_cpu + 1
@@ -25688,8 +25687,8 @@ function cpu_mov() {
     position[8] == 'x'
   ) {
     turn = 'player'
-    position[0] = 'o'
-    box1_img.src = circle
+    position[2] = 'o'
+    box3_img.src = circle
     win_cpu()
     tie()
   }
@@ -40718,8 +40717,8 @@ function cpu_mov() {
     position[8] == 'null'
   ) {
     turn = 'player'
-    position[1] = 'o'
-    box2_img.src = circle
+    position[6] = 'o'
+    box7_img.src = circle
     win_cpu()
     tie()
   }
