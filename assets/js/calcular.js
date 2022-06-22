@@ -17,6 +17,9 @@ const score_player = document.querySelector('#score_player')
 const score_cpu = document.querySelector('#score_cpu')
 const score_tie = document.querySelector('#score_tie')
 const info_text = document.querySelector('#info_text')
+const burla = new Audio('assets/sound/burla.mp3')
+const jugada = new Audio('assets/sound/jugada.mp3')
+const jugada_gato = new Audio('assets/sound/jugada_gato.mp3')
 var gamer_player = 0
 var gamer_cpu = 0
 var gamer_tie = 0
@@ -74,6 +77,7 @@ function reset_game() {
 }
 //Valida si Gana Player
 function win_player() {
+  jugada.play()
   if (
     (position[0] == 'x' && position[1] == 'x' && position[2] == 'x') ||
     (position[3] == 'x' && position[4] == 'x' && position[5] == 'x') ||
@@ -88,6 +92,7 @@ function win_player() {
   }
   function post_win_player() {
     info_text.style.color = '#ff0000'
+
     win = '1'
     if (position[0] == 'x' && position[1] == 'x' && position[2] == 'x') {
       box1_img.src = equis_win
@@ -129,6 +134,7 @@ function win_player() {
       box5_img.src = equis_win
       box3_img.src = equis_win
     }
+
     setTimeout(() => reset_game(), 1500)
     reset_game()
     gamer_player = gamer_player + 1
@@ -148,6 +154,9 @@ function win_cpu() {
     (position[0] == 'o' && position[4] == 'o' && position[8] == 'o') ||
     (position[6] == 'o' && position[4] == 'o' && position[2] == 'o')
   ) {
+    jugada_gato.pause();
+    jugada_gato.currentTime = 0;
+    burla.play()
     post_win_cpu()
   }
 }
@@ -199,8 +208,7 @@ function post_win_cpu() {
   info_text.innerHTML = 'YO GANO'
   info_text.style.color = '#ff0000'
   turn = ''
-  setTimeout(() => reset_game(), 1500)
-
+  setTimeout(() => reset_game(), 2500)
   gamer_cpu = gamer_cpu + 1
   score_cpu.innerHTML = gamer_cpu
 }
@@ -228,6 +236,8 @@ function tie() {
     gamer_tie = gamer_tie + 1
     score_tie.innerHTML = gamer_tie
   }
+
+  //efectos sonidos.
 
   //Jugadas Player
 }
@@ -323,13 +333,19 @@ const player_box9 = function () {
 }
 
 function thinking_cpu_mov() {
-  setTimeout(() => cpu_mov(), 700)
+  setTimeout(() => cpu_mov(), 1000)
   info_text.innerHTML = 'PROCESANDO'
+
 }
+
+
 
 //Jugadas CPU
 
 function cpu_mov() {
+  jugada.pause();
+  jugada.currentTime = 0;
+  jugada_gato.play();
   if (
     turn == 'cpu' &&
     position[0] == 'null' &&
@@ -8299,8 +8315,8 @@ function cpu_mov() {
     position[8] == 'null'
   ) {
     turn = 'player'
-    position[0] = 'o'
-    box1_img.src = circle
+    position[6] = 'o'
+    box7_img.src = circle
     win_cpu()
     tie()
   }
@@ -8587,8 +8603,8 @@ function cpu_mov() {
     position[8] == 'null'
   ) {
     turn = 'player'
-    position[0] = 'o'
-    box1_img.src = circle
+    position[2] = 'o'
+    box3_img.src = circle
     win_cpu()
     tie()
   }
@@ -41041,8 +41057,8 @@ function cpu_mov() {
     position[8] == 'null'
   ) {
     turn = 'player'
-    position[1] = 'o'
-    box2_img.src = circle
+    position[8] = 'o'
+    box9_img.src = circle
     win_cpu()
     tie()
   }
@@ -41055,24 +41071,6 @@ function cpu_mov() {
     position[4] == 'null' &&
     position[5] == 'o' &&
     position[6] == 'null' &&
-    position[7] == 'null' &&
-    position[8] == 'null'
-  ) {
-    turn = 'player'
-    position[1] = 'o'
-    box2_img.src = circle
-    win_cpu()
-    tie()
-  }
-  if (
-    turn == 'cpu' &&
-    position[0] == 'x' &&
-    position[1] == 'null' &&
-    position[2] == 'null' &&
-    position[3] == 'null' &&
-    position[4] == 'null' &&
-    position[5] == 'null' &&
-    position[6] == 'o' &&
     position[7] == 'null' &&
     position[8] == 'null'
   ) {
@@ -41090,6 +41088,24 @@ function cpu_mov() {
     position[3] == 'null' &&
     position[4] == 'null' &&
     position[5] == 'null' &&
+    position[6] == 'o' &&
+    position[7] == 'null' &&
+    position[8] == 'null'
+  ) {
+    turn = 'player'
+    position[1] = 'o'
+    box2_img.src = circle
+    win_cpu()
+    tie()
+  }
+  if (
+    turn == 'cpu' &&
+    position[0] == 'x' &&
+    position[1] == 'null' &&
+    position[2] == 'null' &&
+    position[3] == 'null' &&
+    position[4] == 'null' &&
+    position[5] == 'null' &&
     position[6] == 'null' &&
     position[7] == 'o' &&
     position[8] == 'null'
@@ -49609,8 +49625,8 @@ function cpu_mov() {
     position[8] == 'null'
   ) {
     turn = 'player'
-    position[2] = 'o'
-    box3_img.src = circle
+    position[6] = 'o'
+    box7_img.src = circle
     win_cpu()
     tie()
   }
