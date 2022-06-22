@@ -6494,8 +6494,8 @@ function cpu_mov() {
     position[8] == 'null'
   ) {
     turn = 'player'
-    position[0] = 'o'
-    box1_img.src = circle
+    position[1] = 'o'
+    box2_img.src = circle
     win_cpu()
     tie()
   }
